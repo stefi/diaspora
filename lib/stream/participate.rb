@@ -3,6 +3,10 @@ class Stream::Participate < Stream::Base
     Rails.application.routes.url_helpers.participate_stream_path(opts)
   end
 
+  def order
+    "updated_at"
+  end
+
   def title
     I18n.translate("streams.participate.title")
   end
