@@ -18,6 +18,10 @@ module Diaspora
         validate :author_is_not_ignored
 
         delegate :public?, :to => :parent
+
+        after_create do
+          parent.touch(:interacted_at) if parent.respond_to?(:interacted_at)
+        end
       end
     end
 
