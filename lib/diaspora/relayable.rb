@@ -22,6 +22,7 @@ module Diaspora
         after_create do
           parent.touch(:interacted_at) if parent.respond_to?(:interacted_at)
         end
+
       end
     end
 
