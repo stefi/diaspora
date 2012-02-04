@@ -53,8 +53,6 @@ describe EvilQuery::Participation do
     end
 
     it "returns the posts that the user has commented on or liked with the most recently acted on ones first" do
-      pp EvilQuery::Participation.new(alice).posts.map{|p| [p.id, p[:updated_at]]}
-      posts.map(&:updated_at).should == [@status_messageA, @status_messageB, @photoC, @status_messageE].sort(&:updated_at).reverse
       posts.map(&:id).should == [@status_messageE.id, @photoC.id, @status_messageA.id, @status_messageB.id]
     end
   end

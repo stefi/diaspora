@@ -4,7 +4,7 @@ class Stream::Participate < Stream::Base
   end
 
   def order
-    "updated_at"
+    "interacted_at"
   end
 
   def title
@@ -15,5 +15,4 @@ class Stream::Participate < Stream::Base
   def posts
     @posts ||= EvilQuery::Participation.new(user).posts
   end
-
 end
